@@ -2,7 +2,7 @@
 ## MetaGPT Builder — Version History
 
 **Document Type:** Changelog  
-**Last Updated:** 2025-01-20
+**Last Updated:** 2025-02-09
 
 ---
 
@@ -10,11 +10,58 @@
 
 | Version | Date | Type | Summary |
 |---------|------|------|---------|
+| 2.0 | 2025-02-09 | MAJOR_UPDATE | GPT Optimization — Added hybrid architecture framework for Custom GPT 8K character limit |
 | 1.0 | 2025-01-20 | INITIAL | Initial release of MetaGPT Builder |
 
 ---
 
 ## Detailed Changes
+
+### v2.0 — 2025-02-09
+
+**Type:** MAJOR_UPDATE
+
+**Summary:** Added GPT optimization framework with hybrid architecture to solve Custom GPT's 8,000 character instruction limit while maintaining full sophisticated functionality.
+
+**New Documents Created:**
+
+| Document | Description |
+|----------|-------------|
+| GPT_CORE_SYSTEM_PROMPT.md | Condensed core prompt (~7.5K chars) — essential identity, discovery flow, KB retrieval protocols |
+| BEHAVIORAL_PROTOCOLS.md | Advanced behavioral systems — maintenance mode, error handling, self-help recognition |
+| GENERATION_PROCEDURES.md | Content processing workflows — chunking, architecture design, generation standards |
+| TEMPLATE_LIBRARY.md | Complete template collection — system prompts, KB templates, metadata schemas, implementation guides |
+| PLATFORM_GUIDES.md | Build guidance for AI — platform selection logic, architecture generation procedures |
+
+**Updated Documents:**
+
+| Document | Changes | Reason |
+|----------|---------|--------|
+| MASTER_METHODOLOGY_BRIEF.md | Added Section 12.2 hybrid architecture, updated platform differences, revised Custom GPT notes | Document GPT optimization approach |
+| MAINTENANCE_SOP.md | Added hybrid architecture maintenance procedures, character limit monitoring | Support new architecture |
+| METAGPT_BUILDER_USER_GUIDE.md | Updated Custom GPT deployment section, added hybrid setup instructions, revised FAQs | User guidance for new approach |
+
+**Architecture Innovation:**
+- **Hybrid Architecture:** Core prompt (under 8K) + Knowledge Base documents (extended protocols)
+- **Platform Optimization:** Different architectures for different platforms while maintaining equivalent functionality
+- **Intelligent Workaround:** Solves Custom GPT limitation without compromising sophistication
+
+**Platform Support Enhanced:**
+- **Claude Projects:** Full sophisticated prompts (unchanged — no platform limitations)
+- **Custom GPTs:** Hybrid architecture (new — maintains full functionality within 8K constraint)
+
+**Benefits Achieved:**
+- Custom GPTs now support full MetaGPT Builder sophistication
+- No functionality compromised despite platform limitations
+- Demonstrates advanced platform optimization expertise
+- Educational value for understanding architecture constraints
+- Single standard approach eliminates decision complexity
+
+**Migration Notes:**
+- Existing Custom GPT builds should migrate to hybrid architecture
+- Claude Project builds unchanged (already optimal)
+- Hybrid architecture is now the standard for all Custom GPTs
+- No breaking changes to methodology or user experience
 
 ### v1.0 — 2025-01-20
 
@@ -74,7 +121,7 @@
 
 | Priority | Item | Status |
 |----------|------|--------|
-| — | No planned updates | — |
+| — | No planned updates | GPT optimization framework complete |
 
 ---
 
