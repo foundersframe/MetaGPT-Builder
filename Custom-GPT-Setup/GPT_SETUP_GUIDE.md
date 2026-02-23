@@ -5,10 +5,15 @@
 
 # Overview
 
-This guide walks you through setting up the MetaGPT Builder as a Custom GPT on OpenAI's platform.
+This guide walks you through setting up the MetaGPT Builder as a Custom GPT on OpenAI's platform using our platform-optimized hybrid architecture.
 
 **Time required:** 15-20 minutes
-**Result:** A shareable GPT link anyone can use
+**Result:** A shareable GPT link with full sophisticated functionality
+**Architecture:** Hybrid (Core prompt + Knowledge Base documents)
+
+---
+
+> ✅ **Platform Optimized**: Uses hybrid architecture to maintain full functionality within Custom GPT's 8K character limit
 
 ---
 
@@ -30,7 +35,7 @@ MetaGPT Builder
 
 ## Description
 ```
-Build effective Custom GPTs and Claude Projects using knowledge architecture — not just prompts and hope. Guides you through discovery, creates properly structured knowledge bases, and generates complete deployment-ready systems with maintenance procedures and test suites.
+Build effective Custom GPTs and Claude Projects using knowledge architecture — not just prompts and hope. Platform-optimized hybrid architecture maintains full functionality within Custom GPT constraints. Guides you through discovery, creates properly structured knowledge bases, and generates complete deployment-ready systems with maintenance procedures and test suites.
 ```
 
 ## Profile Picture
@@ -45,75 +50,104 @@ and white color scheme, suitable for a productivity tool icon
 
 # Step 3: Instructions
 
-**Important:** The MetaGPT Builder uses **two separate prompt files** that both get pasted into the single Instructions field:
+**Important:** The MetaGPT Builder uses a **hybrid architecture** to work within Custom GPT's 8,000 character limit while maintaining full sophistication.
 
-**Method 1: Use Pre-Combined File (Easiest)**
-Copy the **entire contents** of `GPT_SYSTEM_PROMPT.md` into the Instructions field.
+## Core Prompt Setup
+Copy the **entire contents** of `GPT_CORE_SYSTEM_PROMPT.md` into the Instructions field.
 
-**Method 2: Manual Combination (Understanding the Architecture)**
-1. Copy the **entire contents** of `BASE_SYSTEM_PROMPT.md` and paste it first
-2. Add a separator line: `---`
-3. Copy the **entire contents** of `PROJECT_PROMPT_METAGPT_BUILDER.md` and paste it after
+**Character count:** ~7,500 characters (safely under 8K limit)
 
-**Why Two Separate Files?**
-- **BASE_SYSTEM_PROMPT.md:** Universal behaviors used across all projects in multi-project systems
-- **PROJECT_PROMPT_METAGPT_BUILDER.md:** Specific to the MetaGPT Builder project
-- **Maintenance:** Easier to update shared base behaviors vs. project-specific instructions
-- **Multi-Project Architecture:** The base prompt gets reused with different project prompts
+## What's in the Core Prompt?
+- **Essential Identity:** What the AI is and does
+- **Discovery Flow:** Cannot be retrieved mid-conversation, must be in Instructions
+- **KB Retrieval Protocols:** How to access extended behaviors from Knowledge Base
+- **Basic Behavioral Standards:** Core always/never rules
 
-Character count: ~36KB total (within Custom GPT limits)
+## What's NOT in Instructions (Retrieved from Knowledge Base)
+- **Advanced behavioral protocols** → BEHAVIORAL_PROTOCOLS.md
+- **Content processing workflows** → GENERATION_PROCEDURES.md  
+- **Templates and examples** → TEMPLATE_LIBRARY.md
+- **Implementation guidance** → PLATFORM_GUIDES.md
 
-**Critical:** Base behaviors must come before project-specific instructions.
+## How Hybrid Architecture Works
+The core prompt includes retrieval instructions like:
+- "For maintenance mode → retrieve BEHAVIORAL_PROTOCOLS.md Section 3"
+- "For template generation → retrieve TEMPLATE_LIBRARY.md"
+
+This allows full sophisticated functionality while staying under the 8K character limit.
+
+**Critical:** Use only GPT_CORE_SYSTEM_PROMPT.md — do NOT use the combined BASE + PROJECT prompts (those exceed 8K characters).
 
 ---
 
 # Step 4: Conversation Starters
 
-Add these four starter prompts:
+Add these four starter prompts that showcase the hybrid architecture:
 
 ```
-I want to build a GPT
-```
-
-```
-How do you work?
+I want to build a sophisticated AI project
 ```
 
 ```
-Help me structure my knowledge base
+How does your hybrid architecture work?
 ```
 
 ```
-What deliverables will I get?
+Give me a complete system template
 ```
 
-These cover the main entry points: building, learning, specific help, and understanding outputs.
+```
+Help me with platform optimization
+```
+
+These cover the main entry points: sophisticated building (showcases full capabilities), hybrid architecture education, template generation (via KB retrieval), and platform expertise.
 
 ---
 
 # Step 5: Knowledge Files
 
-Upload these files to the Knowledge section:
+Upload these files to the Knowledge section in the recommended order:
 
-## Required Files
+## Required Files (Hybrid Architecture)
 
-| File | Size | Purpose |
-|------|------|---------|
-| MASTER_METHODOLOGY_BRIEF.md | ~100KB | Core methodology, templates, frameworks |
-| METAGPT_BUILDER_USER_GUIDE.md | ~19KB | Onboarding, self-help, FAQs |
-| MAINTENANCE_SOP.md | ~12KB | Update procedures |
-| METAGPT_FILE_MAP.md | ~10KB | Architecture reference |
+| File | Size | Purpose | Priority |
+|------|------|---------|----------|
+| **Hybrid Architecture Files** ||||
+| BEHAVIORAL_PROTOCOLS.md | ~15KB | Advanced behaviors, maintenance mode, error handling | HIGH |
+| GENERATION_PROCEDURES.md | ~18KB | Content workflows, architecture design, generation standards | HIGH |
+| TEMPLATE_LIBRARY.md | ~22KB | Complete templates, metadata schemas, examples | HIGH |
+| PLATFORM_GUIDES.md | ~16KB | Build guidance, platform optimization, implementation | HIGH |
+| **Core Methodology Files** ||||
+| MASTER_METHODOLOGY_BRIEF.md | ~100KB | Core methodology, frameworks, comprehensive reference | ESSENTIAL |
+| METAGPT_BUILDER_USER_GUIDE.md | ~19KB | User onboarding, self-help, FAQs | ESSENTIAL |
+| MAINTENANCE_SOP.md | ~12KB | Update procedures, version control | IMPORTANT |
+| METAGPT_FILE_MAP.md | ~15KB | Architecture reference, file relationships | IMPORTANT |
+| CHANGELOG.md | ~5KB | Version history | OPTIONAL |
 
-## Upload Order
-1. MASTER_METHODOLOGY_BRIEF.md (largest, most important)
-2. METAGPT_BUILDER_USER_GUIDE.md
-3. MAINTENANCE_SOP.md
-4. METAGPT_FILE_MAP.md
+## Upload Order (Critical for Hybrid Architecture)
+
+1. **BEHAVIORAL_PROTOCOLS.md** (advanced behaviors)
+2. **GENERATION_PROCEDURES.md** (content workflows)  
+3. **TEMPLATE_LIBRARY.md** (templates & examples)
+4. **PLATFORM_GUIDES.md** (implementation guidance)
+5. **MASTER_METHODOLOGY_BRIEF.md** (core methodology)
+6. **METAGPT_BUILDER_USER_GUIDE.md** (user guidance)
+7. **MAINTENANCE_SOP.md** (update procedures)
+8. **METAGPT_FILE_MAP.md** (architecture reference)
+9. **CHANGELOG.md** (version history)
+
+## Why Upload Order Matters
+
+The core prompt includes specific retrieval instructions that reference these documents by name. Uploading in this order ensures:
+- Highest priority behavioral systems are processed first
+- Core retrieval paths work reliably
+- Complex procedures are accessible when needed
 
 ## Files NOT to Upload
 - TEST_SUITE.md — Keep locally for your own validation
-- CHANGELOG.md — Optional, low priority
-- METAGPT_BUILDER_BLUEPRINT.md — Reference only
+- GPT_CORE_SYSTEM_PROMPT.md — This goes in Instructions, not Knowledge
+- BASE_SYSTEM_PROMPT.md — Claude Projects only
+- PROJECT_PROMPT_METAGPT_BUILDER.md — Claude Projects only
 
 ---
 
@@ -123,14 +157,15 @@ Configure these settings:
 
 | Capability | Setting | Reason |
 |------------|---------|--------|
-| **Web Browsing** | ❌ OFF | All info should come from Knowledge |
+| **Web Browsing** | ❌ OFF | All info comes from Knowledge Base (hybrid architecture) |
 | **DALL·E Image Generation** | ❌ OFF | Not needed |
-| **Code Interpreter & Data Analysis** | ✅ **ON** | Required to process user uploads and generate downloadable files |
+| **Code Interpreter & Data Analysis** | ✅ **ON** | Required to process uploads and generate files; supports hybrid architecture |
 
 **Why Code Interpreter ON:**
 - Reads user-uploaded documents (PDFs, docs, text)
 - Processes content for chunking and structuring
 - Generates downloadable .md files as deliverables
+- Supports hybrid architecture file processing workflows
 
 ---
 
@@ -161,11 +196,11 @@ Before sharing, run these tests in the GPT:
 
 ## Test 1: Self-Help Recognition
 **Input:** "How do you work?"
-**Expected:** Offers three choices (explain, walk through, jump in)
+**Expected:** Explains hybrid architecture approach and capabilities
 **Pass:** ☐
 
 ## Test 2: Discovery Flow Start
-**Input:** "I want to build a GPT"
+**Input:** "I want to build a sophisticated AI project"
 **Expected:** Asks about single vs. multi-project FIRST
 **Pass:** ☐
 
@@ -174,22 +209,37 @@ Before sharing, run these tests in the GPT:
 **Expected:** References 600-1000 tokens, self-contained chunks, metadata
 **Pass:** ☐
 
-## Test 4: User Content Signal (No Maintenance)
+## Test 4: Hybrid Architecture - KB Retrieval
+**Input:** "Help me with maintenance mode"
+**Expected:** Retrieves from BEHAVIORAL_PROTOCOLS.md, provides maintenance procedures
+**Pass:** ☐
+
+## Test 5: Hybrid Architecture - Template Generation
+**Input:** "Give me a system prompt template"
+**Expected:** Retrieves from TEMPLATE_LIBRARY.md, provides complete template
+**Pass:** ☐
+
+## Test 6: User Content Signal (No Maintenance)
 **Input:** "Help me revise this document"
 **Expected:** Offers to help with user's document, does NOT enter maintenance mode
 **Pass:** ☐
 
-## Test 5: Clear Maintenance Trigger
+## Test 7: Clear Maintenance Trigger
 **Input:** "Update the methodology"
 **Expected:** Enters maintenance mode, asks what to update
 **Pass:** ☐
 
-## Test 6: File Upload Processing
+## Test 8: Platform Optimization Knowledge
+**Input:** "What's the difference between Claude Projects and Custom GPTs?"
+**Expected:** Explains hybrid architecture solution for Custom GPTs
+**Pass:** ☐
+
+## Test 9: File Upload Processing
 **Input:** Upload a text file and say "Please structure this for a knowledge base"
 **Expected:** Reads file, chunks content, applies metadata, offers structured output
 **Pass:** ☐
 
-## Test 7: Deliverable Generation
+## Test 10: Deliverable Generation
 **Input:** Complete a simple discovery flow and say "Generate the deliverables"
 **Expected:** Creates downloadable .md files for each deliverable
 **Pass:** ☐
@@ -215,21 +265,39 @@ This link works for anyone with ChatGPT Plus or Team.
 
 ## "GPT isn't finding information from Knowledge files"
 
-- Verify all 4 files uploaded successfully
+- Verify all 9 required files uploaded successfully (including hybrid architecture files)
 - Check file sizes match expected (no truncation)
-- Try asking directly: "What does your knowledge base say about chunking?"
+- Try asking directly: "What does BEHAVIORAL_PROTOCOLS.md say about maintenance mode?"
+
+## "Hybrid architecture retrieval not working"
+
+- Verify KB files uploaded in correct order (BEHAVIORAL_PROTOCOLS.md first)
+- Test specific retrieval: "Give me a template from TEMPLATE_LIBRARY.md"
+- Check that GPT_CORE_SYSTEM_PROMPT.md is in Instructions (not Knowledge)
 
 ## "Discovery flow skips steps"
 
-- Check Instructions copied completely
-- Verify "Always follow this sequence" section is present
-- Test with explicit: "I want to build a GPT — guide me through discovery"
+- Check Instructions use GPT_CORE_SYSTEM_PROMPT.md (not combined BASE + PROJECT)
+- Verify character count is under 8,000 characters
+- Test with explicit: "I want to build a sophisticated project — guide me through discovery"
 
 ## "Maintenance mode triggers incorrectly"
 
-- Check all 3 layers are in Instructions
-- Verify "User Content Signals → NEVER trigger" section present
+- Check BEHAVIORAL_PROTOCOLS.md uploaded successfully
+- Verify all 3 trigger layers are accessible via KB retrieval
 - Test both trigger and non-trigger phrases
+
+## "Can't access advanced features"
+
+- Verify BEHAVIORAL_PROTOCOLS.md, GENERATION_PROCEDURES.md uploaded
+- Test complex behavior: "Help me with a multi-project system"
+- Check that hybrid architecture files are accessible
+
+## "Not generating templates"
+
+- Verify TEMPLATE_LIBRARY.md uploaded successfully
+- Test directly: "Give me a system prompt template"
+- Check retrieval instructions in core prompt
 
 ## "Can't read uploaded files"
 
@@ -241,7 +309,7 @@ This link works for anyone with ChatGPT Plus or Team.
 
 - Verify Code Interpreter is ON
 - Explicitly request: "Generate these as downloadable .md files"
-- Check Instructions include "FILE OUTPUTS" section
+- Check Instructions include file generation protocols
 
 ---
 
@@ -250,13 +318,14 @@ This link works for anyone with ChatGPT Plus or Team.
 | Setting | Value |
 |---------|-------|
 | Name | MetaGPT Builder |
-| Instructions | Contents of GPT_SYSTEM_PROMPT.md (~6,500 chars) |
-| Knowledge | 4 files (~141KB total) |
+| Instructions | Contents of GPT_CORE_SYSTEM_PROMPT.md (~7,500 chars) |
+| Knowledge | 9 files (~200KB total) - hybrid architecture |
 | Web Browsing | OFF |
 | DALL·E | OFF |
 | Code Interpreter | ON |
-| Conversation Starters | 4 prompts |
+| Conversation Starters | 4 prompts (hybrid architecture focused) |
 | Visibility | Anyone with a link (for sharing) |
+| Architecture | Hybrid (Instructions + Knowledge Base retrieval) |
 
 ---
 
@@ -264,18 +333,40 @@ This link works for anyone with ChatGPT Plus or Team.
 
 ## When to Update the GPT
 
-- Methodology improvements → Update MASTER_METHODOLOGY_BRIEF.md, re-upload
-- Behavioral changes → Update Instructions
-- New features → May require both
+- **Methodology improvements** → Update MASTER_METHODOLOGY_BRIEF.md, re-upload
+- **Behavioral changes** → Update BEHAVIORAL_PROTOCOLS.md or GPT_CORE_SYSTEM_PROMPT.md
+- **Template updates** → Update TEMPLATE_LIBRARY.md, re-upload
+- **Platform guidance changes** → Update PLATFORM_GUIDES.md, re-upload
+- **Core prompt changes** → Update GPT_CORE_SYSTEM_PROMPT.md in Instructions
 
 ## Update Process
 
-1. Make changes to source files locally
-2. Go to **My GPTs → MetaGPT Builder → Edit**
-3. Re-upload changed Knowledge files (delete old, upload new)
-4. Update Instructions if needed
-5. Save
-6. Run regression tests (Tests 1, 2, 3, 5 minimum)
+1. **Make changes to source files locally**
+2. **Go to My GPTs → MetaGPT Builder → Edit**
+3. **For Knowledge Base updates:**
+   - Delete old file from Knowledge section
+   - Upload updated file in same order position
+4. **For Instructions updates:**
+   - Replace with updated GPT_CORE_SYSTEM_PROMPT.md content
+   - Verify character count under 8,000
+5. **Save**
+6. **Run regression tests** (Tests 1, 2, 4, 5, 8 minimum for hybrid architecture)
+
+## Hybrid Architecture Maintenance
+
+**Character Limit Monitoring:**
+- Always verify Instructions under 8,000 characters after updates
+- If core prompt grows too large, move content to appropriate KB document
+
+**KB Document Dependencies:**
+- Maintain upload order for optimal retrieval
+- Test retrieval paths after any KB document updates
+- Ensure core prompt retrieval instructions match actual KB document names
+
+**Version Sync:**
+- Keep local files in sync with uploaded versions
+- Update CHANGELOG.md for all changes
+- Test hybrid functionality after any updates
 
 ---
 
