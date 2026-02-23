@@ -1,8 +1,8 @@
 # MetaGPT Builder User Guide
 ## Build Effective AI Projects Using Knowledge Architecture
 
-**Version:** 1.0  
-**Last Updated:** 2025-01-20
+**Version:** 2.0 (GPT Optimization Update)  
+**Last Updated:** 2025-02-09
 
 ---
 
@@ -365,7 +365,9 @@ Platform-specific deployment instructions:
 
 ## Custom GPTs
 
-### Step-by-Step
+**Note:** Custom GPTs have an 8,000 character limit on Instructions. For sophisticated projects, the MetaGPT Builder uses hybrid architecture to maintain full functionality within platform constraints.
+
+### Step-by-Step (Hybrid Architecture)
 
 1. **Create GPT**
    - Go to chat.openai.com → Explore GPTs → Create
@@ -374,28 +376,46 @@ Platform-specific deployment instructions:
 2. **Configure Basic Info**
    - Name: Clear, descriptive
    - Description: What it does (users see this)
+   - Note: "Platform-optimized hybrid architecture" in description
 
-3. **Add Instructions**
-   - GPTs have a single Instructions field
-   - Paste combined prompt content (base + project together)
+3. **Add Core Instructions**
+   - GPTs have a single Instructions field (8,000 character limit)
+   - Paste **GPT_CORE_SYSTEM_PROMPT.md** content (~7,500 characters)
+   - This contains essential behaviors + KB retrieval protocols
 
-4. **Upload Knowledge**
+4. **Upload Knowledge Base (Critical for Hybrid)**
    - Click "Upload files" in Knowledge section
-   - Upload all KB documents
-   - Upload MAINTENANCE_SOP.md
-   - Upload CHANGELOG.md
+   - Upload in this recommended order:
+     - BEHAVIORAL_PROTOCOLS.md (advanced behaviors)
+     - GENERATION_PROCEDURES.md (content workflows)
+     - TEMPLATE_LIBRARY.md (templates & examples)
+     - PLATFORM_GUIDES.md (implementation guidance)
+     - [YOUR_DOMAIN]_KNOWLEDGE_BASE.md (domain expertise)
+     - MAINTENANCE_SOP.md
+     - CHANGELOG.md
 
 5. **Set Conversation Starters**
-   - Add 3-4 example prompts users might try
-   - These appear as clickable options
+   - Add 4 example prompts showcasing capabilities
+   - Include one that demonstrates KB retrieval
 
 6. **Configure Capabilities**
    - Enable Web Browsing if real-time info needed
-   - Enable DALL-E if image generation needed
-   - Enable Code Interpreter if code execution needed
+   - Usually DISABLE DALL-E unless image generation needed
+   - Enable Code Interpreter if file processing needed
 
-7. **Test**
-   - Same testing approach as Claude Projects
+7. **Test Hybrid Functionality**
+   - Test basic responses (should work from core prompt)
+   - Test complex procedures: "Help me with maintenance mode" (should retrieve from BEHAVIORAL_PROTOCOLS.md)
+   - Test template generation (should retrieve from TEMPLATE_LIBRARY.md)
+   - Verify character count under 8,000 for Instructions
+
+### Why Hybrid Architecture?
+
+This approach solves Custom GPT's character limit while maintaining full sophistication:
+- Core behaviors in Instructions (immediate access)
+- Extended protocols in Knowledge Base (retrieved as needed)
+- Full MetaGPT Builder functionality preserved
+- Demonstrates advanced platform optimization
 
 ---
 
@@ -598,12 +618,13 @@ Your MAINTENANCE_SOP includes sync procedures and a matrix showing which documen
 ### "It's not following the instructions"
 
 **Possible causes:**
-- Instructions are too long (platforms may truncate)
+- Instructions are too long for Custom GPT (8,000 character limit)
 - Conflicting instructions
 - Instructions are vague
 
 **Solutions:**
-- Prioritize critical instructions early
+- For Custom GPTs: Builder uses hybrid architecture automatically (core prompt + KB documents)
+- Prioritize critical instructions in core prompt
 - Remove contradictions
 - Make instructions specific and actionable
 
@@ -631,7 +652,7 @@ A: No problem! The Builder offers three methods to create your knowledge base fr
 A: Simple projects with existing content: 30-60 minutes. Projects starting from scratch (with research/interview): 3-5 hours total. Complex multi-project systems: 4-8 hours.
 
 **Q: Can I build for both Claude and GPT?**
-A: Yes. Tell the Builder you need both, and it will provide platform-specific implementations.
+A: Yes. The Builder provides platform-optimized implementations: Claude Projects get full sophisticated prompts, Custom GPTs get hybrid architecture (core prompt + KB documents) that maintains equivalent functionality within platform constraints.
 
 **Q: What if my knowledge base isn't complete?**
 A: That's fine — and often intentional. The Builder supports "Minimum Viable Knowledge Base" launches where you start with core content and expand based on actual usage. You'll get gap identification signals and expansion procedures.
@@ -652,7 +673,7 @@ A: Absolutely. The deliverables are starting points. Customize to fit your needs
 A: You can evolve from single to multi-project, or restructure as needed. Major changes use the MAJOR_REVISION procedure.
 
 **Q: What files will I receive?**
-A: For a typical single project: System Prompt, Master Intelligence Brief (your KB), File Map, Maintenance SOP, Changelog, Test Suite, and Implementation Guide. Multi-project systems also include a Base System Prompt, Project Prompts, and Lens Documents.
+A: For Claude Projects: System Prompt (Base + Project), Master Intelligence Brief (your KB), File Map, Maintenance SOP, Changelog, Test Suite, and Implementation Guide. For Custom GPTs: Core System Prompt + 4 KB documents (Behavioral Protocols, Generation Procedures, Template Library, Platform Guides) + your domain KB + standard files. Multi-project systems include additional architecture documents.
 
 **Q: How do I ask the Builder for help using itself?**
 A: Just ask! Say "How do you work?" or "Walk me through this" and the Builder will explain itself or guide you step-by-step.
