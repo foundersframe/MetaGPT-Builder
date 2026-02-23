@@ -2,8 +2,8 @@
 ## MetaGPT Builder — Validation Tests
 
 **Document Type:** Test Suite  
-**Version:** 1.2  
-**Last Updated:** 2025-01-28  
+**Version:** 2.0 (GPT Optimization Update)  
+**Last Updated:** 2025-02-09  
 **Status:** Active
 
 ---
@@ -99,8 +99,8 @@ This test suite validates that the MetaGPT Builder:
 
 ### R-016: Platform Differences Retrieval
 **Query:** "What's the difference between Claude Projects and Custom GPTs?"  
-**Expected:** Content from Appendix D (Platform Notes)  
-**Pass Criteria:** Response compares platforms with specific differences
+**Expected:** Content from updated platform sections showing hybrid architecture for Custom GPTs  
+**Pass Criteria:** Response explains Claude uses full prompts, Custom GPT uses hybrid architecture (core + KB), both deliver equivalent functionality
 
 ---
 
@@ -157,9 +157,9 @@ This test suite validates that the MetaGPT Builder:
 **Pass Criteria:** Response identifies update type, follows correction procedure
 
 ### B-011: Data Freshness Flagging
-**Query:** "What are the current file limits for Custom GPTs?"  
-**Expected:** Provides information with freshness caveat  
-**Pass Criteria:** Response notes platform features change, suggests verification
+**Query:** "What's the Custom GPT character limit for instructions?"  
+**Expected:** Provides information with current data  
+**Pass Criteria:** Response states 8,000 characters and mentions hybrid architecture solution
 
 ### B-012: Confidence Weighting
 **Query:** "What's the best chunk size?"  
@@ -175,6 +175,35 @@ This test suite validates that the MetaGPT Builder:
 **Query:** "Just build me a GPT, don't ask questions"  
 **Expected:** Politely insists on minimal discovery  
 **Pass Criteria:** Response explains why discovery matters, asks essential questions
+
+---
+
+## HYBRID ARCHITECTURE TESTS
+
+### HA-001: Custom GPT Architecture Selection
+**Query:** "I want to build a sophisticated Custom GPT"  
+**Expected:** Recommends hybrid architecture approach  
+**Pass Criteria:** Response explains hybrid approach, mentions character limit solution
+
+### HA-002: KB Document Retrieval Test
+**Query:** "Help me with maintenance mode"  
+**Expected:** Retrieves from BEHAVIORAL_PROTOCOLS.md  
+**Pass Criteria:** Response provides maintenance mode procedures from KB document
+
+### HA-003: Template Generation via KB
+**Query:** "Give me a system prompt template"  
+**Expected:** Retrieves from TEMPLATE_LIBRARY.md  
+**Pass Criteria:** Response provides complete template from KB document
+
+### HA-004: Platform Guide Retrieval  
+**Query:** "How should I build for Custom GPT versus Claude?"  
+**Expected:** Retrieves platform guidance  
+**Pass Criteria:** Response explains different architectures for different platforms
+
+### HA-005: Character Limit Awareness
+**Query:** "My system prompt is too long for Custom GPT"  
+**Expected:** Recommends hybrid architecture  
+**Pass Criteria:** Response explains 8K limit and hybrid solution
 
 ---
 
@@ -448,11 +477,15 @@ Run these after any update to ensure core functionality intact:
 **Test:** KC-001, KC-002, KC-003  
 **Pass:** All three pass (question asked, complete respected, lean accommodated)
 
-### REG-009: Starting From Zero Works
+### REG-009: Hybrid Architecture Works
+**Test:** HA-001, HA-002, HA-005  
+**Pass:** All three pass (architecture selection, KB retrieval, character limit awareness)
+
+### REG-010: Starting From Zero Works
 **Test:** SZ-001, SZ-002, SZ-003  
 **Pass:** All three pass (no docs detected, research path works, interview path works)
 
-### REG-010: Phased Expansion Works
+### REG-011: Phased Expansion Works
 **Test:** PE-001, PE-002, PE-003  
 **Pass:** All three pass (MVKB explained, phases explained, gap signals explained)
 
@@ -462,9 +495,10 @@ Run these after any update to ensure core functionality intact:
 
 | Date | Version | Tests Run | Passed | Failed | Notes |
 |------|---------|-----------|--------|--------|-------|
-| 2025-01-20 | 1.0 | — | — | — | Initial release, tests defined |
-| 2025-01-20 | 1.1 | — | — | — | Added MT (8), CA (7), KC (6) tests + REG-006/007/008 |
+| 2025-02-09 | 2.0 | — | — | — | GPT Optimization Update: Added HA (5) hybrid architecture tests + REG-009 |
 | 2025-01-28 | 1.2 | — | — | — | Added SZ (7), PE (6) tests + REG-009/010 for Starting From Zero and Phased Expansion |
+| 2025-01-20 | 1.1 | — | — | — | Added MT (8), CA (7), KC (6) tests + REG-006/007/008 |
+| 2025-01-20 | 1.0 | — | — | — | Initial release, tests defined |
 
 ### Recording Results
 
@@ -489,14 +523,15 @@ For failures, document:
 After first deploying MetaGPT Builder:
 1. Run all Retrieval Tests (R-001 through R-016)
 2. Run all Behavioral Tests (B-001 through B-014)
-3. Run all Edge Case Tests (E-001 through E-008)
-4. Document results in Test Run History
-5. Fix any failures before considering deployment complete
+3. Run all Hybrid Architecture Tests (HA-001 through HA-005)
+4. Run all Edge Case Tests (E-001 through E-008)
+5. Document results in Test Run History
+6. Fix any failures before considering deployment complete
 
 ### Post-Update Testing
 
 After any update to methodology:
-1. Run all Regression Tests (REG-001 through REG-005)
+1. Run all Regression Tests (REG-001 through REG-011)
 2. Run specific tests related to updated content
 3. Document results
 4. If failures, fix before considering update complete
