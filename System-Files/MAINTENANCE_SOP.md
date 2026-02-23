@@ -2,8 +2,8 @@
 ## MetaGPT Builder — Update Procedures
 
 **Document Type:** Standard Operating Procedure  
-**Version:** 1.0  
-**Last Updated:** 2025-01-20  
+**Version:** 2.0 (GPT Optimization Update)  
+**Last Updated:** 2025-02-09  
 **Status:** Active
 
 ---
@@ -162,8 +162,8 @@ Is existing content WRONG?
 7. If error was significant, consider adding a note about what was wrong (helps others who may have learned the incorrect version)
 
 **Example:**
-"Custom GPTs actually support 20 files, not 10"
-→ Find all references, correct them, log with explanation
+"Custom GPT hybrid architecture now requires specific KB document order"
+→ Find all references, update implementation procedures, log with explanation
 
 ---
 
@@ -253,6 +253,7 @@ Is existing content WRONG?
 | Content Type | Review Trigger | Action |
 |--------------|----------------|--------|
 | Platform features | 6 months | Verify current, update or flag |
+| Hybrid architecture procedures | 6 months | Verify KB document structure, character limits |
 | Best practices | 12 months | Review for continued relevance |
 | Tool capabilities | 6 months | Check for changes |
 | Core concepts | Never | Evergreen — no review needed |
@@ -423,6 +424,52 @@ If two updates conflict:
 
 ---
 
+## HYBRID ARCHITECTURE MAINTENANCE
+
+### GPT-Optimized File Considerations
+
+The methodology now includes hybrid architecture for Custom GPTs. Special maintenance considerations:
+
+#### Core Prompt Character Limit
+- **GPT_CORE_SYSTEM_PROMPT.md** must stay under 8,000 characters
+- When adding content, verify character count
+- Move excess content to appropriate KB documents
+
+#### KB Document Dependencies
+The hybrid architecture relies on specific KB documents:
+- **BEHAVIORAL_PROTOCOLS.md** (advanced behaviors)
+- **GENERATION_PROCEDURES.md** (content workflows)
+- **TEMPLATE_LIBRARY.md** (templates & examples)  
+- **PLATFORM_GUIDES.md** (implementation guidance)
+
+#### Hybrid Maintenance Procedures
+
+**When updating behavioral protocols:**
+1. Check if update belongs in core prompt or KB document
+2. If core prompt → verify character count after update
+3. If KB document → verify retrieval references are correct
+
+**When updating templates:**
+1. Update **TEMPLATE_LIBRARY.md**
+2. Verify core prompt references KB correctly
+3. Test retrieval of updated templates
+
+**Character Count Validation:**
+```bash
+# Check core prompt character count
+wc -c GPT_CORE_SYSTEM_PROMPT.md
+# Should be under 8,000
+```
+
+#### Hybrid Architecture Testing
+After any updates to hybrid architecture files:
+- [ ] Test core prompt character count compliance
+- [ ] Test KB document retrieval functionality
+- [ ] Verify all retrieval references work correctly
+- [ ] Test complex procedure access via KB
+
+---
+
 ## MAINTENANCE SCHEDULE
 
 ### Ongoing (As Needed)
@@ -439,6 +486,9 @@ If two updates conflict:
 - Archive current version
 - Review structure for needed improvements
 - Process SECTION_ADD requests
+- **Validate hybrid architecture integrity**
+- **Test all KB document retrieval paths**
+- **Verify character count compliance for core prompts**
 
 ### Annually
 - Comprehensive methodology review
